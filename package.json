@@ -1,0 +1,26 @@
+{
+  "name": "dynamic_personal_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riya-n/dynamic_personal_website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riya-n/dynamic_personal_website/issues"
+  },
+  "homepage": "https://github.com/riya-n/dynamic_personal_website#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}

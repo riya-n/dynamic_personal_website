@@ -1,21 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+
 import AddBlogPost from './AddBlogPost'
 import BlogPost from './BlogPost'
-import { connect } from 'react-redux'
-import { addBlogPost } from '../actions'
-import blogposts from '../reducers/blogposts'
 
 const BlogPostList = ({ blogposts }) => {
+  const [adding, setAdding] = useState(false)
   let posts = []
   blogposts.map(blogpost => {
     posts.push(<BlogPost key={blogpost.id} {...blogpost} />)
   })
 
-
   return (
     <div>
       <div>Blog Posts</div>
-      <AddBlogPost />
+
+      <button onClick={() => setAdding(true)}>Add Post</button>
+      {
+        adding? <AddBlogPost setAdding={setAdding} /> : ''
+      }
       
       <ul>
         {
@@ -35,9 +38,5 @@ const BlogPostList = ({ blogposts }) => {
 const mapStateToProps = state => ({
   blogposts: state.blogposts
 })
-
-// const mapDispatchToProps = dispatch => ({
-//   addBlogPost: blogpost => dispatch(addBlogPost(blogpost))
-// })
 
 export default connect(mapStateToProps)(BlogPostList)

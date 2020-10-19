@@ -3,7 +3,6 @@ const blogposts = (state = [], action) => {
 
   switch (type) {
     case 'ADD_POST':
-      console.log('reducer', id, post)
       return [
         ...state,
         { id, post }

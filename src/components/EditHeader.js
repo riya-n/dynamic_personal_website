@@ -1,32 +1,35 @@
-// import React from 'react'
-// import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
-// import { editHeader } from '../actions'
+import { editHeader } from '../actions'
 
-// const EditHeader = ({ editHeader }) => {
-//   let input
+const EditHeader = ({ header, setEditing, editHeader }) => {
+  const [image, setImage] = useState(header.image ?? '')
+  const [description, setDescription] = useState(header.description ?? '')
 
-//   return (
-//     <div>
-//       <form onSubmit={e => {
-//         e.preventDefault()
-//         if (!input.value.trim()) {
-//           return
-//         }
-//         editHeader(input.value)
-//         input.value = ''
-//       }}>
-//         <input ref={node => input = node} />
-//         <button type="submit">
-//           Add Todo
-//         </button>
-//       </form>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <form onSubmit={e => {
+        e.preventDefault()
+        editHeader({image, description})
+        setEditing(false)
+      }}>
 
-// const mapDispatchToProps = dispatch => ({
-//   editHeader: header => dispatch(editHeader(header))
-// })
+        <div>Image</div>
+        <input placeholder="Enter image url" value={image} onChange={e => setImage(e.target.value)} />
 
-// export default connect(null, mapDispatchToProps)(EditHeader)
+        <div>Description</div>
+        <input placeholder="Enter description" value={description} onChange={e => setDescription(e.target.value)} />
+        
+        <button type="submit">Save</button>
+        <button onClick={() => setEditing(false)}>Cancel</button>
+      </form>
+    </div>
+  )
+}
+
+const mapDispatchToProps = dispatch => ({
+  editHeader: header => dispatch(editHeader(header))
+})
+
+export default connect(null, mapDispatchToProps)(EditHeader)

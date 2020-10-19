@@ -1,13 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
-import { editHeader } from '../actions'
+import EditHeader from './EditHeader'
 
-const Header = ({ image, description }) => (
-  <div>
-    <div>Hey this is me!</div>
-    <img src={image} alt="" />
-    <div>{description}</div>
-  </div>
-)
+const Header = ({ header }) => {
+  console.log('in here', header)
+  const { image, description } = header
+  const [editing, setEditing] = useState(false)
 
-export default Header
+  return (
+    <div>
+      <div>Hey this is me!</div>
+      {
+        editing ? <EditHeader header={{ image, description }} setEditing={setEditing} /> :
+        <div>
+          <img src={image} alt="" />
+          <div>{description}</div>
+          <button onClick={() => setEditing(true)}>Edit</button>
+        </div>
+      }
+    </div>
+  )
+}
+
+const mapStateToProps = state => ({
+  header: state.header
+})
+
+export default connect(mapStateToProps)(Header)

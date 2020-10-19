@@ -5,9 +5,9 @@ import { deleteBlogPost, editBlogPost } from '../actions'
 
 const EditBlogPost = ({ id, post, setEditing, editBlogPost, deleteBlogPost }) => {
   console.log('id', id, post, setEditing)
-  const [title, setTitle] = useState(post.title)
-  const [image, setImage] = useState(post.image)
-  const [description, setDescription] = useState(post.description)
+  const [title, setTitle] = useState(post.title ?? '')
+  const [image, setImage] = useState(post.image ?? '')
+  const [description, setDescription] = useState(post.description ?? '')
 
   return (
     <div>

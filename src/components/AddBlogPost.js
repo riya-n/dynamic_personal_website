@@ -3,18 +3,19 @@ import { connect } from 'react-redux'
 
 import { addBlogPost } from '../actions'
 
-const AddBlogPost = ({ addBlogPost }) => {
+const AddBlogPost = ({ setAdding, addBlogPost }) => {
   let title, image, description
 
   return (
     <div>
       <div>New Post</div>
-      <button>x</button>
+      <button onClick={() => setAdding(false)}>x</button>
 
       <form onSubmit={e => {
         e.preventDefault()
         console.log('onubmit', title.value, image.value, description.value)
         addBlogPost({title: title.value, image: image.value, description: description.value})
+        setAdding(false)
         title.value = ''
         image.value = ''
         description.value = ''
@@ -30,7 +31,7 @@ const AddBlogPost = ({ addBlogPost }) => {
         <input placeholder="Enter description" ref={node => description = node} />
         
         <button type="submit">Save</button>
-        <button>Cancel</button>
+        <button onClick={() => setAdding(false)}>Cancel</button>
       </form>
     </div>
   )

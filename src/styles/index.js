@@ -1,6 +1,6 @@
 import s from 'styled-components'
 
-const Button = s.button `
+const Button = s.button`
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
@@ -18,26 +18,26 @@ const Button = s.button `
   font-family: inherit;
 `
 
-export const EditButton = s(Button) `
+export const EditButton = s(Button)`
   color: #212529;
   background-color: #ffc107;
   border-color: #ffc107;
   float: right!important;
 `
 
-export const SaveButton = s(Button) `
+export const SaveButton = s(Button)`
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
 `
 
-export const CancelButton = s(Button) `
+export const CancelButton = s(Button)`
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
 `
 
-export const XButton = s(Button) `
+export const XButton = s(Button)`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
@@ -47,21 +47,21 @@ export const XButton = s(Button) `
   font: 700 1rem Arial;
 `
 
-export const DeleteButton = s(Button) `
+export const DeleteButton = s(Button)`
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
   width: 100%;
 `
 
-export const AddButton = s(Button) `
+export const AddButton = s(Button)`
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
   float: right!important;
 `
 
-export const NewPostTitle = s.h5 `
+export const NewPostTitle = s.h5`
   margin-bottom: 0;
   line-height: 1.5;
   font-size: 1.25rem;
@@ -69,7 +69,7 @@ export const NewPostTitle = s.h5 `
   margin-top: 0;
 `
 
-export const InputBox = s.input `
+export const InputBox = s.input`
   display: block;
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
@@ -82,15 +82,14 @@ export const InputBox = s.input `
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 `
 
-export const InputTitle = s.div `
+export const InputTitle = s.div`
   display: inline-block;
   margin-bottom: .5rem;
 `
 
-export const HeaderTitle = s.h1 `
+export const HeaderTitle = s.h1`
   color: rgb(40, 48, 51);
   font-family: "Playfair Display", serif;
   font-weight: 700;
@@ -100,7 +99,7 @@ export const HeaderTitle = s.h1 `
   margin-top: 0;
 `
 
-export const HeaderDescription = s.h3 `
+export const HeaderDescription = s.h3`
   font-size: 1.75rem;
   margin: .5rem;
   font-weight: 500;
@@ -109,7 +108,7 @@ export const HeaderDescription = s.h3 `
   font-family: Karla, sans-serif;
 `
 
-export const ListTitle = s.h1 `
+export const ListTitle = s.h1`
   color: rgb(60, 180, 178);
   font-family: Karla, sans-serif;
   font-weight: 700;
@@ -119,7 +118,7 @@ export const ListTitle = s.h1 `
   margin-top: 0;
 `
 
-export const List = s.div `
+export const List = s.div`
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -127,7 +126,7 @@ export const List = s.div `
   margin-left: -15px;
 `
 
-export const ListElement = s.div `
+export const ListElement = s.div`
   width: 25%;
   min-height: 1px;
   display: block;
@@ -144,7 +143,7 @@ export const ListElement = s.div `
   margin: 3px;
 `
 
-export const PostTitle = s.h5 `
+export const PostTitle = s.h5`
   margin-bottom: .75rem;
   font-size: 1.25rem;
   font-weight: 600;
@@ -154,7 +153,7 @@ export const PostTitle = s.h5 `
   padding: 1.25rem;
 `
 
-export const PostImage = s.img `
+export const PostImage = s.img`
   width: 100%;
   vertical-align: middle;
   border-style: none;
@@ -162,14 +161,14 @@ export const PostImage = s.img `
   padding: 0rem;
 `
 
-export const PostDescription = s.p `
+export const PostDescription = s.p`
   color: #212529;
   margin: 0;
   display: block;
   padding: 1.25rem;
 `
 
-export const AddPostPopUp = s.div `
+export const AddPostPopUp = s.div`
   background-color: white;
   position: absolute;
   top: 15%;
@@ -184,7 +183,7 @@ export const AddPostPopUp = s.div `
   border: 1px solid rgba(0,0,0,.125);
 `
 
-export const GreyOut = s.div `
+export const GreyOut = s.div`
   width: 100%;
   height 100%;
   top: 0; bottom: 0; left: 0; right: 0;

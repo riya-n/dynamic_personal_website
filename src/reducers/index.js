@@ -5,5 +5,5 @@ import header from './header'
 
 export default combineReducers({
   blogposts,
-  header
+  header,
 })

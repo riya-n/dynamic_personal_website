@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
@@ -8,10 +11,8 @@ import { List, ListTitle, AddButton } from '../styles'
 const BlogPostList = ({ blogposts }) => {
   const [adding, setAdding] = useState(false)
 
-  let posts = []
-  blogposts.map(blogpost => {
-    posts.push(<BlogPost key={blogpost.id} {...blogpost} />)
-  })
+  const posts = []
+  blogposts.map(blogpost => posts.push(<BlogPost key={blogpost.id} {...blogpost} />))
 
   return (
     <div style={{ padding: '3rem 10rem' }}>
@@ -21,16 +22,10 @@ const BlogPostList = ({ blogposts }) => {
       {
         adding ? <AddBlogPost setAdding={setAdding} /> : ''
       }
-      
+
       <List>
         {
           posts.map(post => post)
-          // blogposts.map(blogpost => {
-          //   <BlogPost 
-          //     key={blogpost.id}
-          //     {...blogpost.post}
-          //   />
-          // })
         }
       </List>
     </div>
@@ -38,7 +33,7 @@ const BlogPostList = ({ blogposts }) => {
 }
 
 const mapStateToProps = state => ({
-  blogposts: state.blogposts
+  blogposts: state.blogposts,
 })
 
 export default connect(mapStateToProps)(BlogPostList)

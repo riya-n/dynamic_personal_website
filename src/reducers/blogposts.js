@@ -5,14 +5,12 @@ const blogposts = (state = [], action) => {
     case 'ADD_POST':
       return [
         ...state,
-        { id, post }
+        { id, post },
       ]
     case 'EDIT_POST':
-      return state.map(blogpost =>
-        (blogpost.id === id)
-          ? { id, post }
-          : blogpost
-      )
+      return state.map(blogpost => ((blogpost.id === id)
+        ? { id, post }
+        : blogpost))
     case 'DELETE_POST':
       return state.filter(blogpost => blogpost.id !== id)
     default:

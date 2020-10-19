@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
@@ -12,21 +14,23 @@ const Header = ({ header }) => {
     <div style={{ padding: '3rem 10rem', background: 'rgb(246, 247, 247)' }}>
       <HeaderTitle>Hey this is me!</HeaderTitle>
       {
-        editing ? <EditHeader header={{ image, description }} setEditing={setEditing} /> :
-        <div>
-          <div style={{ display: 'inline-flex' }}>
-            <img style={{ maxHeight: '400px' }} src={image} alt="" />
-            <HeaderDescription>{description}</HeaderDescription>
-          </div>
-          <EditButton onClick={() => setEditing(true)}>Edit</EditButton>
-        </div>
+        editing ? <EditHeader header={{ image, description }} setEditing={setEditing} />
+          : (
+            <div>
+              <div style={{ display: 'inline-flex' }}>
+                <img style={{ maxHeight: '400px' }} src={image} alt="" />
+                <HeaderDescription>{description}</HeaderDescription>
+              </div>
+              <EditButton onClick={() => setEditing(true)}>Edit</EditButton>
+            </div>
+          )
       }
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  header: state.header
+  header: state.header,
 })
 
 export default connect(mapStateToProps)(Header)

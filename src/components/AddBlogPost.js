@@ -13,14 +13,12 @@ const AddBlogPost = ({ setAdding, addBlogPost }) => {
 
       <form onSubmit={e => {
         e.preventDefault()
-        console.log('onubmit', title.value, image.value, description.value)
         addBlogPost({title: title.value, image: image.value, description: description.value})
         setAdding(false)
         title.value = ''
         image.value = ''
         description.value = ''
       }}>
-
         <div>Title</div>
         <input placeholder="Enter the title of the post" ref={node => title = node} />
 

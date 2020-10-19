@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import EditHeader from './EditHeader'
 
 const Header = ({ header }) => {
-  console.log('in here', header)
   const { image, description } = header
   const [editing, setEditing] = useState(false)
 

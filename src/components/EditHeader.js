@@ -14,7 +14,6 @@ const EditHeader = ({ header, setEditing, editHeader }) => {
         editHeader({image, description})
         setEditing(false)
       }}>
-
         <div>Image</div>
         <input placeholder="Enter image url" value={image} onChange={e => setImage(e.target.value)} />
 

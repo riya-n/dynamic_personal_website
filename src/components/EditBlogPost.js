@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { deleteBlogPost, editBlogPost } from '../actions'
 
 const EditBlogPost = ({ id, post, setEditing, editBlogPost, deleteBlogPost }) => {
-  console.log('id', id, post, setEditing)
   const [title, setTitle] = useState(post.title ?? '')
   const [image, setImage] = useState(post.image ?? '')
   const [description, setDescription] = useState(post.description ?? '')
@@ -16,7 +15,6 @@ const EditBlogPost = ({ id, post, setEditing, editBlogPost, deleteBlogPost }) =>
         editBlogPost(id, {title, image, description})
         setEditing(false)
       }}>
-
         <div>Title</div>
         <input placeholder="Enter the title of the post" value={title} onChange={e => setTitle(e.target.value)} />
 
@@ -32,7 +30,6 @@ const EditBlogPost = ({ id, post, setEditing, editBlogPost, deleteBlogPost }) =>
 
       <form onSubmit={e => {
         e.preventDefault()
-        console.log('trying to delete', id)
         deleteBlogPost(id)
       }}>
         <button type="submit">Delete Post</button>

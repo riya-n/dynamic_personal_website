@@ -6,6 +6,7 @@ import BlogPost from './BlogPost'
 
 const BlogPostList = ({ blogposts }) => {
   const [adding, setAdding] = useState(false)
+
   let posts = []
   blogposts.map(blogpost => {
     posts.push(<BlogPost key={blogpost.id} {...blogpost} />)
@@ -17,7 +18,7 @@ const BlogPostList = ({ blogposts }) => {
 
       <button onClick={() => setAdding(true)}>Add Post</button>
       {
-        adding? <AddBlogPost setAdding={setAdding} /> : ''
+        adding ? <AddBlogPost setAdding={setAdding} /> : ''
       }
       
       <ul>

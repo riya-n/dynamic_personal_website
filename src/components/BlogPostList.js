@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import AddBlogPost from './AddBlogPost'
 import BlogPost from './BlogPost'
+import { List, ListTitle, AddButton } from '../styles'
 
 const BlogPostList = ({ blogposts }) => {
   const [adding, setAdding] = useState(false)
@@ -13,15 +14,15 @@ const BlogPostList = ({ blogposts }) => {
   })
 
   return (
-    <div>
-      <div>Blog Posts</div>
+    <div style={{ padding: '3rem 10rem' }}>
+      <ListTitle>Blog Posts</ListTitle>
 
-      <button onClick={() => setAdding(true)}>Add Post</button>
+      <AddButton onClick={() => setAdding(true)}>Add Post</AddButton>
       {
         adding ? <AddBlogPost setAdding={setAdding} /> : ''
       }
       
-      <ul>
+      <List>
         {
           posts.map(post => post)
           // blogposts.map(blogpost => {
@@ -31,7 +32,7 @@ const BlogPostList = ({ blogposts }) => {
           //   />
           // })
         }
-      </ul>
+      </List>
     </div>
   )
 }

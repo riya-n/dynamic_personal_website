@@ -2,16 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { addBlogPost } from '../actions'
+import { CancelButton, SaveButton, InputTitle, InputBox, NewPostTitle, XButton, AddPostPopUp } from '../styles'
 
 const AddBlogPost = ({ setAdding, addBlogPost }) => {
   let title, image, description
 
   return (
-    <div>
-      <div>New Post</div>
-      <button onClick={() => setAdding(false)}>x</button>
+    <AddPostPopUp>
+      <div style={{ borderBottom: '1px solid #dee2e6', padding: '20px', display: 'flex', placeContent: 'space-between' }}>
+        <NewPostTitle>New Post</NewPostTitle>
+        <XButton onClick={() => setAdding(false)}>x</XButton>
+      </div>
 
-      <form onSubmit={e => {
+      <form style={{ padding: '20px' }} onSubmit={e => {
         e.preventDefault()
         addBlogPost({title: title.value, image: image.value, description: description.value})
         setAdding(false)
@@ -19,19 +22,19 @@ const AddBlogPost = ({ setAdding, addBlogPost }) => {
         image.value = ''
         description.value = ''
       }}>
-        <div>Title</div>
-        <input placeholder="Enter the title of the post" ref={node => title = node} />
+        <InputTitle>Title</InputTitle>
+        <InputBox style={{ marginBottom: '2rem' }} placeholder="Enter the title of the post" ref={node => title = node} />
 
-        <div>Image</div>
-        <input placeholder="Enter image url" ref={node => image = node} />
+        <InputTitle>Image</InputTitle>
+        <InputBox style={{ marginBottom: '2rem' }} placeholder="Enter image url" ref={node => image = node} />
 
-        <div>Description</div>
-        <input placeholder="Enter description" ref={node => description = node} />
+        <InputTitle>Description</InputTitle>
+        <InputBox style={{ marginBottom: '2rem' }} placeholder="Enter description" ref={node => description = node} />
         
-        <button type="submit">Save</button>
-        <button onClick={() => setAdding(false)}>Cancel</button>
+        <SaveButton type="submit">Save</SaveButton>
+        <CancelButton style={{ marginLeft: '1rem' }} onClick={() => setAdding(false)}>Cancel</CancelButton>
       </form>
-    </div>
+    </AddPostPopUp>
   )
 }
 

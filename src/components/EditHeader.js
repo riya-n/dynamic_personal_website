@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { editHeader } from '../actions'
+import { CancelButton, SaveButton, InputTitle, InputBox } from '../styles'
 
 const EditHeader = ({ header, setEditing, editHeader }) => {
   const [image, setImage] = useState(header.image ?? '')
@@ -14,14 +15,18 @@ const EditHeader = ({ header, setEditing, editHeader }) => {
         editHeader({image, description})
         setEditing(false)
       }}>
-        <div>Image</div>
-        <input placeholder="Enter image url" value={image} onChange={e => setImage(e.target.value)} />
+        <div style={{ marginBottom: '2rem' }}>
+          <InputTitle>Image</InputTitle>
+          <InputBox placeholder="Enter image url" value={image} onChange={e => setImage(e.target.value)} />
+        </div>
 
-        <div>Description</div>
-        <input placeholder="Enter description" value={description} onChange={e => setDescription(e.target.value)} />
-        
-        <button type="submit">Save</button>
-        <button onClick={() => setEditing(false)}>Cancel</button>
+        <div style={{ marginBottom: '2rem' }}>
+          <InputTitle>Description</InputTitle>
+          <InputBox placeholder="Enter description" value={description} onChange={e => setDescription(e.target.value)} />
+        </div>
+
+        <SaveButton type="submit">Save</SaveButton>
+        <CancelButton style={{ marginLeft: '1rem' }} onClick={() => setEditing(false)}>Cancel</CancelButton>
       </form>
     </div>
   )

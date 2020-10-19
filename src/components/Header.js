@@ -2,20 +2,23 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import EditHeader from './EditHeader'
+import { EditButton, HeaderTitle, HeaderDescription } from '../styles'
 
 const Header = ({ header }) => {
   const { image, description } = header
   const [editing, setEditing] = useState(false)
 
   return (
-    <div>
-      <div>Hey this is me!</div>
+    <div style={{ padding: '3rem 10rem', background: 'rgb(246, 247, 247)' }}>
+      <HeaderTitle>Hey this is me!</HeaderTitle>
       {
         editing ? <EditHeader header={{ image, description }} setEditing={setEditing} /> :
         <div>
-          <img src={image} alt="" />
-          <div>{description}</div>
-          <button onClick={() => setEditing(true)}>Edit</button>
+          <div style={{ display: 'inline-flex' }}>
+            <img style={{ maxHeight: '400px' }} src={image} alt="" />
+            <HeaderDescription>{description}</HeaderDescription>
+          </div>
+          <EditButton onClick={() => setEditing(true)}>Edit</EditButton>
         </div>
       }
     </div>
